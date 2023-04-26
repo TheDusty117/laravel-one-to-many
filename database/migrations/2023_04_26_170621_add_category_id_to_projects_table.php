@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::table('projects', function (Blueprint $table) {
             //1. AGGIUNGO COLONNA
             //
-            $table->unsignedBigInteger('category_id')-nullable()->after('id');
+            $table->unsignedBigInteger('category_id')->nullable()->after('id');
 
             //2. QUI CREO LA RELAZIONE TRA CHIAVE ESTERNA E CHIAVE PRIMARIA
             //
-            $table->foreign('category_id')->references('id')->on('caterogies')
+            $table->foreign('category_id')->references('id')->on('caterogies');
         });
     }
 
@@ -32,10 +32,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //DROP COLONNA
-            $table->dropColumn('category-id');
             //DROP DELLA RELAZIONE
             $table-dropForeign(['category-id']);
+            //DROP COLONNA
+            $table->dropColumn('category-id');
         });
     }
 };
