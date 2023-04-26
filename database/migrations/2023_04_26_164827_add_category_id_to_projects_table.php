@@ -14,9 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //definisco la connessione tra tabelle, nullable e dove si deve collocare, in questo caso dopo id
+            //1. AGGIUNGO COLONNA
+            //
             $table->unsignedBigInteger('category_id')-nullable()->after('id');
-            //uso la foreign key per agganciare la nuova colonna,
+
+            //2. QUI CREO LA RELAZIONE TRA CHIAVE ESTERNA E CHIAVE PRIMARIA
+            //
             $table->foreign('category_id')->references('id')->on('caterogies')
         });
     }
@@ -29,7 +32,10 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            //DROP COLONNA
+            $table->dropColumn('category-id');
+            //DROP DELLA RELAZIONE
+            $table-dropForeign(['category-id']);
         });
     }
 };
