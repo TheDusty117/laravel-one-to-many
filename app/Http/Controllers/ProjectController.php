@@ -6,8 +6,10 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
-
 use Illuminate\Http\Request;
+// importo le categorie
+use App\Models\Category;
+
 
 class ProjectController extends Controller
 {
@@ -39,7 +41,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $categories = Category::orderBy('name','asc')->get();
+        return view('projects.create', compact('categories'));
     }
 
     /**

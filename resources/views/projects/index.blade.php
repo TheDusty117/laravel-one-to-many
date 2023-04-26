@@ -41,6 +41,7 @@
                         <td>
                             <a href="{{ route('projects.show',$project) }}">{{ $project->title }}</a>
                         </td>
+                        <td>{{ $project->category ? $project->category->name : '-'}}</td>
                         <td>{{ $project->client }}</td>
                         <td>{{ $project->description }}</td>
                         <td>{{ $project->slug }}</td>

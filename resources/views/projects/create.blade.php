@@ -17,7 +17,11 @@
 
               <label for="client" class="form-label">Cliente</label>
               <input type="text" name="client" class="form-control @error('client') is-invalid @enderror" value="{{ old('client') }}" id="client" aria-describedby="clientHelp">
-                {{-- errore title --}}
+
+
+
+              {{-- 'Frontend','Backend','Fullstack','Design','Gestionali','Videogiochi' --}}
+              {{-- errore title --}}
 
                 @error('title')
                     <div class="invalid-feedback">
@@ -31,7 +35,34 @@
                     </div>
                 @enderror
 
+
+
             </div>
+
+
+            {{-- select delle categorie --}}
+            <div class="mb-3">
+                <label for="categories">Categorie</label>
+              <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" id="category-id">
+                <option selected>seleziona categoria</option>
+                @foreach ($categories as $category)
+                    <option @selected( old('category_id') === $category->id ) value="{{$category->id}}">
+                        {{$category->name}}
+                    </option>
+                @endforeach
+
+              </select>
+
+
+              @error('category_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+            </div>
+
+
             <div class="mb-3">
               <label for="description" class="form-label">Descrizione</label>
               <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description">{{ old('description') }}</textarea>
