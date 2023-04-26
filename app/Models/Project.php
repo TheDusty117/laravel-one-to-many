@@ -19,4 +19,10 @@ class Project extends Model
         'slug',
 
     ];
+
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
 }
