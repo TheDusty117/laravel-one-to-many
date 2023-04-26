@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            //definisco la connessione tra tabelle, nullable e dove si deve collocare, in questo caso dopo id
+            $table->unsignedBigInteger('category_id')-nullable()->after('id');
+            //uso la foreign key per agganciare la nuova colonna,
+            $table->foreign('category_id')->references('id')->on('caterogies')
         });
     }
 
