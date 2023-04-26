@@ -7,8 +7,16 @@
         <div class="d-flex align-itmes-center">
 
             <div class="me-auto">
-                <h1>{{ $project->title }}</h1>
+                <h1>{{ $project->title }}
+                    @if ($project->category)
+                        <span class="badge rounded-pill bg-primary"> {{ $project->category->name }} </span>
+                    @else
+                        <span class="badge rounded-pill bg-secondary"> Nesuna categoria </span>
+                    @endif
+                </h1>
+
                 <p>{{ $project->slug }}</p>
+
             </div>
 
             <div>

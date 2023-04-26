@@ -42,6 +42,7 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name','asc')->get();
+
         return view('projects.create', compact('categories'));
     }
 
@@ -53,6 +54,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+
         $data = $request->validated();
 
         $data['slug'] = Str::slug( $data['title'] );
@@ -81,7 +83,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit',compact('project'));
+
+        $categories = Category::orderBy('name','asc')->get();
+
+        return view('projects.edit',compact('project','categories'));
     }
 
     /**
