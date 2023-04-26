@@ -20,7 +20,7 @@ return new class extends Migration
 
             //2. QUI CREO LA RELAZIONE TRA CHIAVE ESTERNA E CHIAVE PRIMARIA
             //
-            $table->foreign('category_id')->references('id')->on('caterogies');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -33,9 +33,9 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             //DROP DELLA RELAZIONE
-            $table-dropForeign(['category-id']);
+            $table-dropForeign(['category_id']);
             //DROP COLONNA
-            $table->dropColumn('category-id');
+            $table->dropColumn('category_id');
         });
     }
 };
