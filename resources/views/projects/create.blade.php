@@ -44,7 +44,7 @@
             <div class="mb-3">
                 <label for="categories">Categorie</label>
               <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" id="category-id">
-                <option selected>seleziona categoria</option>
+                <option value="" selected>seleziona categoria</option>
                 @foreach ($categories as $category)
                     <option @selected( old('category_id') === $category->id ) value="{{$category->id}}">
                         {{$category->name}}
