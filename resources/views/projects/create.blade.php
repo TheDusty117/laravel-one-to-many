@@ -20,8 +20,6 @@
 
 
 
-              {{-- 'Frontend','Backend','Fullstack','Design','Gestionali','Videogiochi' --}}
-              {{-- errore title --}}
 
                 @error('title')
                     <div class="invalid-feedback">

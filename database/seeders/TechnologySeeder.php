@@ -22,7 +22,7 @@ class TechnologySeeder extends Seeder
         $technologies = ['CSS','SASS','Bootstrap', 'HTML','JavaScript','PHP','Vue','SQL','Laravel','Vite'];
 
         foreach($technologies as $technology_name){
-            $technology = new Tech();
+            $technology = new Technology();
             $technology->name = $technology_name;
             $technology->slug = Str::slug($technology_name);
             $technology->save();
